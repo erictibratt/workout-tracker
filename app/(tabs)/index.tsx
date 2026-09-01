@@ -1,13 +1,11 @@
-import { StyleSheet, Text } from 'react-native';
+import { } from 'react-native';
+import Screen from "@/components/Screen";
+import Text from "@/components/AppText";
 
 export default function HomeScreen() {
   return (
-    <Text style={styles.text}>Welcome to the Home Page!"</Text>
+    <Screen>
+      <Text>Welcome to your workout tracker!</Text>
+    </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    color: "black",
-  },
-});

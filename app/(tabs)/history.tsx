@@ -1,13 +1,12 @@
-import { StyleSheet, Text } from 'react-native';
+import { StyleSheet} from 'react-native';
+import Screen from "@/components/Screen";
+import Text from "@/components/AppText";
 
 export default function HistoryScreen() {
   return (
-    <Text style={styles.text}>See your past workouts!</Text>
+    <Screen>
+      <Text>See your past workouts!</Text>
+    </Screen>
   );
 }
 
-const styles = StyleSheet.create({
-  text: {
-    color: "black",
-  },
-});
