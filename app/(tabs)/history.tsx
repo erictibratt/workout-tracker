@@ -1,8 +1,8 @@
 import { StyleSheet, Text } from 'react-native';
 
-export default function HomeScreen() {
+export default function HistoryScreen() {
   return (
-    <Text style={styles.text}>There is more...</Text>
+    <Text style={styles.text}>See your past workouts!</Text>
   );
 }
 

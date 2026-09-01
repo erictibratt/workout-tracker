@@ -2,7 +2,7 @@ import { StyleSheet, Text } from 'react-native';
 
 export default function HomeScreen() {
   return (
-    <Text style={styles.text}>Hello World!</Text>
+    <Text style={styles.text}>Welcome to the Home Page!"</Text>
   );
 }
 
