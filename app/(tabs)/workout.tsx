@@ -1,16 +1,10 @@
-import { Text, StyleSheet } from 'react-native';
-import { SafeAreaView } from 'react-native-safe-area-context';
+import { Text } from 'react-native';
+import Screen from "@/components/Screen";
 
 export default function WorkoutScreen() {
   return (
-    <SafeAreaView>
-          <Text style={styles.text}>Start your next workout!</Text>
-    </SafeAreaView>
+    <Screen>
+      <Text>Start a workout!</Text>
+    </Screen>
   );
 }
-
-const styles = StyleSheet.create({
-  text: {
-    color: "black",
-  },
-});
