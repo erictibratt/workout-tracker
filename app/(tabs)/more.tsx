@@ -8,7 +8,6 @@ export default function HomeScreen() {
 
 const styles = StyleSheet.create({
   text: {
-    marginTop: 100,
-    color: "white",
+    color: "black",
   },
 });
