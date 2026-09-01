@@ -9,7 +9,7 @@ import { Link } from 'expo-router';
 
 export default function HomeScreen() {
   return (
-    <Text style={styles.text}>I listen</Text>
+    <Text style={styles.text}>Hello World!</Text>
   );
 }
 
