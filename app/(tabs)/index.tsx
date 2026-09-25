@@ -5,7 +5,7 @@ import Text from "@/components/AppText";
 export default function HomeScreen() {
   return (
     <Screen>
-      <Text>Welcome to your workout tracker!</Text>
+      <Text> tracker!</Text>
     </Screen>
   );
 }
