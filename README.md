@@ -33,8 +33,10 @@ npx.cmd expo-doctor
 
 - `app/`: root layout and Home, Workout, History, and Exercises routes.
 - `components/`: shared text and screen wrappers.
+- `components/home/`: the Home header, next workout, stats, weekly goal, and recent activity.
 - `components/workout/`: exercise cards, set rows, the options modal, and shared workout types.
 - `assets/workout/`: set-marker SVGs from Figma.
+- `assets/home/`: profile, workout ring, and weekly goal SVGs from Figma.
 - `assets/fonts/`: Inter font and its license.
 
-Workout state and update functions live in `app/(tabs)/workout.tsx`. Set values are held in memory and reset when the app restarts. Home, History, and Exercises are currently placeholder screens.
+Workout state and update functions live in `app/(tabs)/workout.tsx`. Set values are held in memory and reset when the app restarts. Home displays sample workout, stats, calendar, and activity values from Figma. Its buttons open the Workout and History tabs. History and Exercises are currently placeholder screens.

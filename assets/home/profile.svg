@@ -1,0 +1,13 @@
+<svg preserveAspectRatio="none" overflow="visible" style="display: block;" width="45" height="45" viewBox="0 0 45 45" fill="none" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+<g id="Profile">
+<path d="M45 22.5C45 34.9264 34.9264 45 22.5 45C10.0736 45 0 34.9264 0 22.5C0 10.0736 10.0736 0 22.5 0C34.9264 0 45 10.0736 45 22.5Z" fill="black"/>
+<use xlink:href="#stroke0_0_8" stroke="#535353"/>
+<use xlink:href="#stroke0_0_8" stroke="#9CEA91"/>
+<use xlink:href="#stroke0_0_8" stroke="white"/>
+<use xlink:href="#stroke0_0_8" stroke="black"/>
+<use xlink:href="#stroke0_0_8" stroke="#313131"/>
+</g>
+<defs>
+<path id="stroke0_0_8" d="M44.5 22.5C44.5 34.6503 34.6503 44.5 22.5 44.5C10.3497 44.5 0.5 34.6503 0.5 22.5C0.5 10.3497 10.3497 0.5 22.5 0.5C34.6503 0.5 44.5 10.3497 44.5 22.5Z"/>
+</defs>
+</svg>
