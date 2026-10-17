@@ -1,6 +1,5 @@
-import { } from 'react-native';
-import Screen from "@/components/Screen";
-import Text from "@/components/AppText";
+import Text from '@/components/AppText';
+import Screen from '@/components/Screen';
 
 export default function HomeScreen() {
   return (

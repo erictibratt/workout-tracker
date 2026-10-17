@@ -1,10 +1,10 @@
-import { Text, TextProps } from "react-native";
+import { Text, type TextProps } from 'react-native';
 
 export default function AppText({ style, ...props }: TextProps) {
   return (
     <Text
       {...props}
-      style={[{ color: "#FFFFFF" }, style]}
+      style={[{ color: '#FFFFFF' }, style]}
     />
   );
 }
