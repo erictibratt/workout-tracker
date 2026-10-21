@@ -35,8 +35,8 @@ npx.cmd expo-doctor
 - `components/`: shared text and screen wrappers.
 - `components/home/`: the Home header, next workout, stats, weekly goal, and recent activity.
 - `components/workout/`: exercise cards, set rows, the options modal, and shared workout types.
-- `assets/workout/`: set-marker SVGs from Figma.
+- `assets/workout/`: muscle map, button icons, timer icon, and set-marker SVGs from Figma.
 - `assets/home/`: profile, workout ring, and weekly goal SVGs from Figma.
 - `assets/fonts/`: Inter font and its license.
 
-Workout state and update functions live in `app/(tabs)/workout.tsx`. Set values are held in memory and reset when the app restarts. Home displays sample workout, stats, calendar, and activity values from Figma. Its buttons open the Workout and History tabs. History and Exercises are currently placeholder screens.
+Workout state and update functions live in `app/(tabs)/workout.tsx`. The Workout tab supports editing and completing sets, adding and removing sets and exercises, exercise instructions, and a timer with pause and resume. The exercise picker currently contains three biceps exercises; the muscle map is the static biceps illustration supplied by Figma. Workout values and timer state are held in memory and reset when the app restarts. Home displays sample workout, stats, calendar, and activity values from Figma. Its buttons open the Workout and History tabs. History and Exercises are currently placeholder screens.

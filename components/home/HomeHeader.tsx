@@ -1,3 +1,4 @@
+import { colors } from '@/constants/colors';
 import { Image } from 'expo-image';
 import { StyleSheet, View } from 'react-native';
 
@@ -18,7 +19,7 @@ export default function HomeHeader() {
 const styles = StyleSheet.create({
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
   title: { gap: 3, flexShrink: 1 },
-  eyebrow: { fontFamily: 'Inter', fontWeight: '700', fontSize: 11, lineHeight: 13, color: '#9cea91' },
-  heading: { fontFamily: 'Inter', fontWeight: '700', fontSize: 30, lineHeight: 36, color: '#f6f8fb' },
+  eyebrow: { fontFamily: 'Inter', fontWeight: '700', fontSize: 11, lineHeight: 13, color: colors.accent },
+  heading: { fontFamily: 'Inter', fontWeight: '700', fontSize: 30, lineHeight: 36, color: colors.text },
   profile: { width: 45, height: 45 },
 });

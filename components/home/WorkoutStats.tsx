@@ -1,3 +1,4 @@
+import { colors } from '@/constants/colors';
 import { StyleSheet, View } from 'react-native';
 
 import Text from '@/components/AppText';
@@ -23,7 +24,7 @@ export default function WorkoutStats() {
 
 const styles = StyleSheet.create({
   row: { flexDirection: 'row', gap: 10 },
-  card: { flex: 1, gap: 4, paddingVertical: 14, paddingLeft: 14, paddingRight: 10, borderWidth: 1, borderColor: '#313131', borderRadius: 16, backgroundColor: '#313131' },
-  value: { fontFamily: 'Inter', fontWeight: '700', fontSize: 19, lineHeight: 23, color: '#f6f8fb' },
+  card: { flex: 1, gap: 4, paddingVertical: 14, paddingLeft: 14, paddingRight: 10, borderWidth: 1, borderColor: colors.card, borderRadius: 16, backgroundColor: colors.card },
+  value: { fontFamily: 'Inter', fontWeight: '700', fontSize: 19, lineHeight: 23, color: colors.text },
   label: { fontFamily: 'Inter', fontWeight: '700', fontSize: 9, lineHeight: 11 },
 });

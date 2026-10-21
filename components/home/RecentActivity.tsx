@@ -1,3 +1,4 @@
+import { colors } from '@/constants/colors';
 import { Pressable, StyleSheet, View } from 'react-native';
 
 import Text from '@/components/AppText';
@@ -38,12 +39,12 @@ export default function RecentActivity({ onViewHistory }: RecentActivityProps) {
 const styles = StyleSheet.create({
   section: { gap: 22 },
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
-  title: { fontFamily: 'Inter', fontWeight: '700', fontSize: 17, lineHeight: 21, color: '#f6f8fb' },
-  link: { fontFamily: 'Inter', fontWeight: '600', fontSize: 12, lineHeight: 15, color: '#9cea91' },
+  title: { fontFamily: 'Inter', fontWeight: '700', fontSize: 17, lineHeight: 21, color: colors.text },
+  link: { fontFamily: 'Inter', fontWeight: '600', fontSize: 12, lineHeight: 15, color: colors.accent },
   cards: { flexDirection: 'row', gap: 10 },
-  card: { flex: 1, gap: 5, padding: 14, borderWidth: 1, borderColor: '#313131', borderRadius: 16, backgroundColor: '#313131' },
-  name: { fontFamily: 'Inter', fontWeight: '600', fontSize: 13, lineHeight: 16, color: '#f6f8fb' },
+  card: { flex: 1, gap: 5, padding: 14, borderWidth: 1, borderColor: colors.card, borderRadius: 16, backgroundColor: colors.card },
+  name: { fontFamily: 'Inter', fontWeight: '600', fontSize: 13, lineHeight: 16, color: colors.text },
   date: { fontFamily: 'Inter', fontSize: 10, lineHeight: 12 },
-  volume: { fontFamily: 'Inter', fontWeight: '600', fontSize: 11, lineHeight: 13, color: '#9cea91' },
+  volume: { fontFamily: 'Inter', fontWeight: '600', fontSize: 11, lineHeight: 13, color: colors.accent },
   pressed: { opacity: 0.7 },
 });

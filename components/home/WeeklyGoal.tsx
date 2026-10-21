@@ -1,3 +1,4 @@
+import { colors } from '@/constants/colors';
 import { Image } from 'expo-image';
 import { StyleSheet, View } from 'react-native';
 
@@ -42,8 +43,8 @@ export default function WeeklyGoal() {
 const styles = StyleSheet.create({
   section: { gap: 22 },
   header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
-  title: { fontFamily: 'Inter', fontWeight: '700', fontSize: 17, lineHeight: 21, color: '#f6f8fb' },
-  progress: { fontFamily: 'Inter', fontWeight: '600', fontSize: 13, lineHeight: 16, color: '#9cea91' },
+  title: { fontFamily: 'Inter', fontWeight: '700', fontSize: 17, lineHeight: 21, color: colors.text },
+  progress: { fontFamily: 'Inter', fontWeight: '600', fontSize: 13, lineHeight: 16, color: colors.accent },
   days: { flexDirection: 'row', gap: 7 },
   day: { flex: 1, alignItems: 'center', gap: 6 },
   dayLabel: { fontFamily: 'Inter', fontWeight: '600', fontSize: 10, lineHeight: 12 },

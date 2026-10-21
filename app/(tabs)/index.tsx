@@ -1,3 +1,4 @@
+import { colors } from '@/constants/colors';
 import { useFonts } from 'expo-font';
 import { useRouter } from 'expo-router';
 import { StatusBar } from 'expo-status-bar';
@@ -31,7 +32,7 @@ export default function HomeScreen() {
 }
 
 const styles = StyleSheet.create({
-  screen: { backgroundColor: '#2d2d2d' },
-  body: { flex: 1, backgroundColor: '#39393a' },
+  screen: { backgroundColor: colors.chrome },
+  body: { flex: 1, backgroundColor: colors.background },
   content: { width: '100%', maxWidth: 432, alignSelf: 'center', paddingHorizontal: 20, paddingTop: 14, paddingBottom: 12, gap: 22 },
 });

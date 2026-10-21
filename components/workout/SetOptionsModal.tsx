@@ -1,3 +1,4 @@
+import { colors } from '@/constants/colors';
 import { Modal, Pressable, StyleSheet, View } from 'react-native';
 
 import Text from '@/components/AppText';
@@ -40,12 +41,12 @@ export default function SetOptionsModal({ visible, onClose, onRemove }: SetOptio
 const styles = StyleSheet.create({
   backdrop: {
     flex: 1,
-    backgroundColor: '#0008',
+    backgroundColor: colors.overlay,
     justifyContent: 'center',
     padding: 32,
   },
   menu: {
-    backgroundColor: '#313131',
+    backgroundColor: colors.card,
     borderRadius: 20,
     overflow: 'hidden',
     width: '100%',

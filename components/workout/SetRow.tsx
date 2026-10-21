@@ -1,13 +1,15 @@
-import { Feather } from '@expo/vector-icons';
+import { colors } from '@/constants/colors';
 import { Image } from 'expo-image';
 import { Pressable, StyleSheet, TextInput, View } from 'react-native';
 
 import Text from '@/components/AppText';
 import type { WorkoutSet } from './types';
+import WorkoutIcon from './WorkoutIcon';
 
 type SetRowProps = {
   set: WorkoutSet;
   number: number;
+  last: boolean;
   onToggle: () => void;
   onWeightChange: (value: string) => void;
   onRepsChange: (value: string) => void;
@@ -17,14 +19,15 @@ type SetRowProps = {
 export default function SetRow({
   set,
   number,
+  last,
   onToggle,
   onWeightChange,
   onRepsChange,
   onOptions,
 }: SetRowProps) {
   return (
-    <View style={styles.setRow}>
-      <Pressable style={styles.count} onPress={onToggle}>
+    <View style={[styles.setRow, last && styles.lastRow]}>
+      <Pressable style={styles.count} onPress={onToggle} hitSlop={7} accessibilityRole="checkbox" aria-checked={set.completed} accessibilityState={{ checked: set.completed }} accessibilityLabel={`Set ${number} completed`}>
         <Image
           source={
             set.completed
@@ -35,14 +38,7 @@ export default function SetRow({
           contentFit="contain"
         />
 
-        <Text
-          style={[
-            styles.countText,
-            set.completed && styles.completedCountText,
-          ]}
-        >
-          {number}
-        </Text>
+        <Text style={styles.countText}>{number}</Text>
       </Pressable>
 
       <View style={styles.measurement}>
@@ -52,6 +48,7 @@ export default function SetRow({
           keyboardType="decimal-pad"
           selectTextOnFocus
           maxLength={6}
+          accessibilityLabel={`Set ${number} weight in kilograms`}
           style={[
             styles.input,
             { width: Math.max(20, set.weight.length * 10) },
@@ -67,6 +64,7 @@ export default function SetRow({
           keyboardType="number-pad"
           selectTextOnFocus
           maxLength={3}
+          accessibilityLabel={`Set ${number} repetitions`}
           style={[
             styles.input,
             { width: Math.max(20, set.reps.length * 10) },
@@ -75,8 +73,8 @@ export default function SetRow({
         <Text style={styles.unit}>reps</Text>
       </View>
 
-      <Pressable style={styles.more} onPress={onOptions}>
-        <Feather name="more-vertical" size={18} color="#fff" />
+      <Pressable style={styles.more} onPress={onOptions} accessibilityRole="button" accessibilityLabel={`Options for set ${number}`}>
+        <WorkoutIcon name="more" />
       </Pressable>
     </View>
   );
@@ -88,30 +86,29 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 26,
+    paddingHorizontal: 21.5,
   },
+  lastRow: { height: 60 },
   count: {
-    width: 28,
-    height: 28,
+    width: 30,
+    height: 30,
     alignItems: 'center',
     justifyContent: 'center',
   },
   circle: {
     position: 'absolute',
-    width: 28,
-    height: 28,
+    width: 30,
+    height: 30,
   },
   countText: {
+    color: colors.text,
     fontFamily: 'Inter',
     fontWeight: '700',
-    fontSize: 14,
-  },
-  completedCountText: {
-    color: '#9cea91',
+    fontSize: 15,
   },
   measurement: {
     flexDirection: 'row',
-    alignItems: 'baseline',
+    alignItems: 'center',
     width: 47,
     gap: 2,
   },
@@ -119,7 +116,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     fontWeight: '700',
     fontSize: 16,
-    color: '#fff',
+    color: colors.text,
     padding: 0,
     minWidth: 20,
     maxWidth: 38,
@@ -129,12 +126,11 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     fontWeight: '700',
     fontSize: 12,
-    color: '#9cea91',
+    color: colors.accent,
   },
   more: {
-    width: 44,
+    width: 25,
     height: 48,
-    marginHorizontal: -12,
     alignItems: 'center',
     justifyContent: 'center',
   },
