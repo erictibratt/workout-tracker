@@ -13,6 +13,8 @@ import SetOptionsModal from '@/components/workout/SetOptionsModal';
 import WorkoutIcon from '@/components/workout/WorkoutIcon';
 import WorkoutTimer from '@/components/workout/WorkoutTimer';
 import type { Exercise, SelectedSet, WorkoutSet } from '@/components/workout/types';
+import { isExerciseList } from '@/components/workout/types';
+import { usePersistedState } from '@/hooks/usePersistedState';
 
 const initialExercises: Exercise[] = [
   {
@@ -29,7 +31,7 @@ const initialExercises: Exercise[] = [
 
 export default function WorkoutScreen() {
   const [fontsLoaded, fontError] = useFonts({ Inter: require('@/assets/fonts/Inter.ttf') });
-  const [exercises, setExercises] = useState(initialExercises);
+  const { value: exercises, setValue: setExercises, loaded, storageError } = usePersistedState('workout-tracker:exercises:v1', initialExercises, isExerciseList);
   const [selectedSet, setSelectedSet] = useState<SelectedSet | null>(null);
   const [exerciseModal, setExerciseModal] = useState<'add' | 'help' | null>(null);
   const [helpExercise, setHelpExercise] = useState<string | null>(null);
@@ -124,7 +126,8 @@ export default function WorkoutScreen() {
     <Screen style={styles.screen} edges={['top', 'left', 'right']}>
       <StatusBar style="light" />
 
-      {(fontsLoaded || fontError) && <View style={styles.content}>
+      {(fontsLoaded || fontError) && loaded && <View style={styles.content}>
+      {storageError && <Text accessibilityRole="alert" style={styles.storageError}>{storageError}</Text>}
       <ScrollView
         style={styles.body}
         contentContainerStyle={styles.cards}
@@ -177,6 +180,7 @@ const styles = StyleSheet.create({
     backgroundColor: colors.background,
   },
   content: { flex: 1, backgroundColor: colors.background },
+  storageError: { color: colors.text, backgroundColor: colors.chrome, fontSize: 13, padding: 12 },
   cards: {
     padding: 15,
     paddingBottom: 13,
