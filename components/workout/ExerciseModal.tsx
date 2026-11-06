@@ -2,6 +2,7 @@ import { colors } from '@/constants/colors';
 import { Modal, Pressable, ScrollView, StyleSheet } from 'react-native';
 
 import Text from '@/components/AppText';
+import { useExerciseLibrary } from '@/components/exercises/ExerciseLibrary';
 
 export const exerciseOptions = [
   { name: 'Incline Dumbbell Curls', description: 'Sit back on an incline bench with a dumbbell in each hand. Keep your upper arms still as you curl the weights, then lower them with control.' },
@@ -17,6 +18,8 @@ type Props = {
 };
 
 export default function ExerciseModal({ visible, exerciseName, onClose, onSelect }: Props) {
+  const { exercises } = useExerciseLibrary();
+  const options = [...exerciseOptions, ...exercises.filter(item => !exerciseOptions.some(option => option.name === item.name))];
   return (
     <Modal visible={visible} transparent animationType="fade" onRequestClose={onClose}>
       <Pressable style={styles.backdrop} onPress={onClose} accessibilityLabel="Close dialog">
@@ -24,8 +27,8 @@ export default function ExerciseModal({ visible, exerciseName, onClose, onSelect
           <Text style={styles.title}>{exerciseName ?? 'Add New Exercise'}</Text>
           <ScrollView>
             {exerciseName ? (
-              <Text style={styles.description}>{exerciseOptions.find(exercise => exercise.name === exerciseName)?.description}</Text>
-            ) : exerciseOptions.map(exercise => (
+              <Text style={styles.description}>{options.find(exercise => exercise.name === exerciseName)?.description || 'No instructions have been added for this exercise.'}</Text>
+            ) : options.map(exercise => (
               <Pressable key={exercise.name} style={styles.option} onPress={() => onSelect(exercise.name)} accessibilityRole="button">
                 <Text style={styles.optionText}>{exercise.name}</Text>
               </Pressable>

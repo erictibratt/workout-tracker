@@ -92,7 +92,7 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     justifyContent: 'space-between',
     flexDirection: 'row',
-    paddingHorizontal: 15,
+    paddingHorizontal: 19.5,
   },
   title: {
     color: colors.text,
@@ -117,5 +117,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 5,
   },
-  addSetText: { color: colors.text, fontFamily: 'Inter', fontWeight: '700', fontSize: 12 },
+  addSetText: { color: colors.text, fontFamily: 'Inter', fontWeight: '700', fontSize: 14 },
 });

@@ -86,7 +86,7 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     alignItems: 'center',
     justifyContent: 'space-between',
-    paddingHorizontal: 21.5,
+    paddingHorizontal: 16.5,
   },
   lastRow: { height: 60 },
   count: {

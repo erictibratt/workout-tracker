@@ -7,6 +7,7 @@ import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import Text from '@/components/AppText';
 import Screen from '@/components/Screen';
+import HomeHeader from '@/components/home/HomeHeader';
 import ExerciseCard from '@/components/workout/ExerciseCard';
 import ExerciseModal from '@/components/workout/ExerciseModal';
 import SetOptionsModal from '@/components/workout/SetOptionsModal';
@@ -134,6 +135,7 @@ export default function WorkoutScreen() {
         keyboardShouldPersistTaps="handled"
         showsVerticalScrollIndicator={false}
       >
+        <View style={styles.header}><HomeHeader eyebrow="WORKOUT" title="Log your workout." /></View>
         {exercises.map(exercise => (
           <ExerciseCard
             key={exercise.id}
@@ -182,13 +184,15 @@ const styles = StyleSheet.create({
   content: { flex: 1, backgroundColor: colors.background },
   storageError: { color: colors.text, backgroundColor: colors.chrome, fontSize: 13, padding: 12 },
   cards: {
-    padding: 15,
-    paddingBottom: 13,
+    paddingHorizontal: 20,
+    paddingTop: 14,
+    paddingBottom: 75,
     width: '100%',
     maxWidth: 432,
     alignSelf: 'center',
     gap: 20,
   },
+  header: { marginBottom: -5 },
   addExercise: { alignSelf: 'center', height: 40, paddingHorizontal: 20, borderRadius: 25, backgroundColor: colors.accent, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5 },
   addExerciseText: { color: colors.onAccent, fontFamily: 'Inter', fontSize: 14, fontWeight: '700' },
   muscleCard: { backgroundColor: colors.card, borderRadius: 20, overflow: 'hidden' },

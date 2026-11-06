@@ -18,6 +18,7 @@ export default function TabLayout() {
           { height: 65 + insets.bottom, paddingBottom: 8 + insets.bottom },
         ],
         tabBarLabelStyle: styles.label,
+        tabBarIconStyle: { width: 22, height: 22 },
         tabBarIcon: ({ color }) => (
           <Text style={[styles.icon, { color }]}>{tabIcons[route.name]}</Text>
         ),
@@ -36,12 +37,17 @@ const styles = StyleSheet.create({
     backgroundColor: colors.chrome,
     borderTopColor: colors.card,
     paddingTop: 10,
+    paddingHorizontal: 16,
   },
   label: {
+    fontFamily: 'Inter',
     fontSize: 9,
+    lineHeight: 11,
     fontWeight: '600',
   },
   icon: {
+    fontFamily: 'Inter',
     fontSize: 18,
+    lineHeight: 22,
   },
 });

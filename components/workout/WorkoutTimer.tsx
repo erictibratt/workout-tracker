@@ -45,7 +45,7 @@ export default function WorkoutTimer() {
         {running ? (
           <View style={styles.pause}><Feather name="pause" size={20} color={colors.accent} /></View>
         ) : (
-          <Image source={require('@/assets/workout/play.svg')} style={styles.play} />
+          <Image source={require('@/assets/workout/timer-play.png')} style={styles.play} />
         )}
         <Text style={styles.time}>{time}</Text>
       </Pressable>
@@ -54,10 +54,10 @@ export default function WorkoutTimer() {
 }
 
 const styles = StyleSheet.create({
-  container: { backgroundColor: colors.background, alignItems: 'center', paddingTop: 10, paddingBottom: 8 },
-  timer: { minWidth: 201, height: 50, paddingHorizontal: 30, borderRadius: 20, backgroundColor: colors.card, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 },
-  play: { width: 30, height: 30 },
-  pause: { width: 30, height: 30, borderRadius: 15, backgroundColor: colors.muted, alignItems: 'center', justifyContent: 'center' },
-  time: { color: colors.text, fontFamily: 'Inter', fontSize: 20, fontWeight: '700', fontVariant: ['tabular-nums'] },
+  container: { position: 'absolute', bottom: 18, alignSelf: 'center', alignItems: 'center' },
+  timer: { minWidth: 127, height: 35, paddingHorizontal: 10, borderRadius: 20, backgroundColor: colors.accent, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 },
+  play: { width: 25, height: 25 },
+  pause: { width: 25, height: 25, borderRadius: 12.5, backgroundColor: colors.card, alignItems: 'center', justifyContent: 'center' },
+  time: { color: '#000000', fontFamily: 'Inter', fontSize: 20, fontWeight: '700', fontVariant: ['tabular-nums'] },
   error: { color: colors.text, fontSize: 13, padding: 12 },
 });

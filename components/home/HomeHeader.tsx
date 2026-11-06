@@ -4,12 +4,12 @@ import { StyleSheet, View } from 'react-native';
 
 import Text from '@/components/AppText';
 
-export default function HomeHeader() {
+export default function HomeHeader({ eyebrow = 'TODAY', title = 'Make it count.' }: { eyebrow?: string; title?: string }) {
   return (
     <View style={styles.header}>
       <View style={styles.title}>
-        <Text style={styles.eyebrow}>TODAY</Text>
-        <Text style={styles.heading}>Make it count.</Text>
+        <Text style={styles.eyebrow}>{eyebrow}</Text>
+        <Text style={styles.heading}>{title}</Text>
       </View>
       <Image source={require('@/assets/home/profile.svg')} style={styles.profile} contentFit="contain" accessibilityLabel="Profile" />
     </View>
