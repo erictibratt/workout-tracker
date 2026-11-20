@@ -37,13 +37,13 @@ export default function RecentActivity({ onViewHistory }: RecentActivityProps) {
 }
 
 const styles = StyleSheet.create({
-  section: { gap: 22 },
-  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
-  title: { fontFamily: 'Inter', fontWeight: '700', fontSize: 17, lineHeight: 21, color: colors.text },
+  section: { borderRadius: 20, backgroundColor: colors.card, overflow: 'hidden' },
+  header: { minHeight: 44, paddingHorizontal: 16, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: colors.chrome },
+  title: { fontFamily: 'Inter', fontWeight: '700', fontSize: 20, lineHeight: 24, color: colors.text },
   link: { fontFamily: 'Inter', fontWeight: '600', fontSize: 12, lineHeight: 15, color: colors.accent },
-  cards: { flexDirection: 'row', gap: 10 },
-  card: { flex: 1, gap: 5, padding: 14, borderWidth: 1, borderColor: colors.card, borderRadius: 16, backgroundColor: colors.card },
-  name: { fontFamily: 'Inter', fontWeight: '600', fontSize: 13, lineHeight: 16, color: colors.text },
+  cards: { gap: 1, backgroundColor: colors.surface },
+  card: { minHeight: 48, flexDirection: 'row', alignItems: 'center', gap: 12, paddingHorizontal: 16, paddingVertical: 10, backgroundColor: colors.card },
+  name: { flex: 1, fontFamily: 'Inter', fontWeight: '600', fontSize: 14, lineHeight: 17, color: colors.text },
   date: { fontFamily: 'Inter', fontSize: 10, lineHeight: 12 },
   volume: { fontFamily: 'Inter', fontWeight: '600', fontSize: 11, lineHeight: 13, color: colors.accent },
   pressed: { opacity: 0.7 },

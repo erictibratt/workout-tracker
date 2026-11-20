@@ -99,6 +99,7 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     fontWeight: '700',
     fontSize: 20,
+    lineHeight: 24,
     textAlign: 'center',
     flex: 1,
     paddingHorizontal: 8,
@@ -117,5 +118,5 @@ const styles = StyleSheet.create({
     flexDirection: 'row',
     gap: 5,
   },
-  addSetText: { color: colors.text, fontFamily: 'Inter', fontWeight: '700', fontSize: 14 },
+  addSetText: { color: colors.text, fontFamily: 'Inter', fontWeight: '700', fontSize: 14, lineHeight: 17 },
 });

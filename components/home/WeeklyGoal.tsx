@@ -41,13 +41,13 @@ export default function WeeklyGoal() {
 }
 
 const styles = StyleSheet.create({
-  section: { gap: 22 },
-  header: { flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
-  title: { fontFamily: 'Inter', fontWeight: '700', fontSize: 17, lineHeight: 21, color: colors.text },
+  section: { borderRadius: 20, backgroundColor: colors.card, overflow: 'hidden' },
+  header: { minHeight: 44, paddingHorizontal: 16, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center', backgroundColor: colors.chrome },
+  title: { fontFamily: 'Inter', fontWeight: '700', fontSize: 20, lineHeight: 24, color: colors.text },
   progress: { fontFamily: 'Inter', fontWeight: '600', fontSize: 13, lineHeight: 16, color: colors.accent },
-  days: { flexDirection: 'row', gap: 7 },
+  days: { flexDirection: 'row', gap: 4, paddingHorizontal: 8, paddingVertical: 12 },
   day: { flex: 1, alignItems: 'center', gap: 6 },
   dayLabel: { fontFamily: 'Inter', fontWeight: '600', fontSize: 10, lineHeight: 12 },
-  marker: { width: 34, height: 34 },
+  marker: { width: '100%', maxWidth: 34, aspectRatio: 1 },
   date: { fontFamily: 'Inter', fontWeight: '700', fontSize: 10, lineHeight: 12 },
 });

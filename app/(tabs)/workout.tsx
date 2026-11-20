@@ -1,12 +1,11 @@
 import { colors } from '@/constants/colors';
 import { useFonts } from 'expo-font';
 import { Image } from 'expo-image';
-import { StatusBar } from 'expo-status-bar';
 import { useState } from 'react';
 import { Pressable, ScrollView, StyleSheet, View } from 'react-native';
 
 import Text from '@/components/AppText';
-import Screen from '@/components/Screen';
+import Screen, { tabScreenEdges, tabScreenStyles } from '@/components/Screen';
 import HomeHeader from '@/components/home/HomeHeader';
 import ExerciseCard from '@/components/workout/ExerciseCard';
 import ExerciseModal from '@/components/workout/ExerciseModal';
@@ -124,8 +123,7 @@ export default function WorkoutScreen() {
   }
 
   return (
-    <Screen style={styles.screen} edges={['top', 'left', 'right']}>
-      <StatusBar style="light" />
+    <Screen style={tabScreenStyles.screen} edges={tabScreenEdges}>
 
       {(fontsLoaded || fontError) && loaded && <View style={styles.content}>
       {storageError && <Text accessibilityRole="alert" style={styles.storageError}>{storageError}</Text>}
@@ -174,9 +172,6 @@ export default function WorkoutScreen() {
 }
 
 const styles = StyleSheet.create({
-  screen: {
-    backgroundColor: colors.chrome,
-  },
   body: {
     flex: 1,
     backgroundColor: colors.background,
@@ -188,16 +183,16 @@ const styles = StyleSheet.create({
     paddingTop: 14,
     paddingBottom: 75,
     width: '100%',
-    maxWidth: 432,
+    maxWidth: 402,
     alignSelf: 'center',
     gap: 20,
   },
   header: { marginBottom: -5 },
   addExercise: { alignSelf: 'center', height: 40, paddingHorizontal: 20, borderRadius: 25, backgroundColor: colors.accent, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 5 },
-  addExerciseText: { color: colors.onAccent, fontFamily: 'Inter', fontSize: 14, fontWeight: '700' },
+  addExerciseText: { color: colors.onAccent, fontFamily: 'Inter', fontSize: 14, lineHeight: 17, fontWeight: '700' },
   muscleCard: { backgroundColor: colors.card, borderRadius: 20, overflow: 'hidden' },
   muscleHeader: { height: 44, alignItems: 'center', justifyContent: 'center', backgroundColor: colors.chrome },
-  muscleTitle: { color: colors.text, fontFamily: 'Inter', fontSize: 20, fontWeight: '700' },
+  muscleTitle: { color: colors.text, fontFamily: 'Inter', fontSize: 20, lineHeight: 24, fontWeight: '700' },
   muscleBody: { backgroundColor: colors.card, padding: 10 },
   muscleImage: { width: '100%', aspectRatio: 1536 / 1024 },
 });

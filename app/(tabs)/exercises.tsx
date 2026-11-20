@@ -1,10 +1,9 @@
 import { useState } from 'react';
 import { Image } from 'expo-image';
 import { useFonts } from 'expo-font';
-import { StatusBar } from 'expo-status-bar';
-import { Modal, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
+import { Modal, Platform, Pressable, ScrollView, StyleSheet, TextInput, View } from 'react-native';
 import Text from '@/components/AppText';
-import Screen from '@/components/Screen';
+import Screen, { tabScreenEdges, tabScreenStyles } from '@/components/Screen';
 import HomeHeader from '@/components/home/HomeHeader';
 import WorkoutIcon from '@/components/workout/WorkoutIcon';
 import { muscleGroups, useExerciseLibrary, type MuscleGroup } from '@/components/exercises/ExerciseLibrary';
@@ -36,15 +35,14 @@ export default function ExercisesScreen() {
   }
 
   return (
-    <Screen style={styles.screen} edges={['top', 'left', 'right']}>
-      <StatusBar style="light" />
+    <Screen style={tabScreenStyles.screen} edges={tabScreenEdges}>
       {(fontsLoaded || fontError) && <ScrollView style={styles.body} contentContainerStyle={styles.content} keyboardShouldPersistTaps="handled">
         <HomeHeader eyebrow="EXERCISES" title="Explore exercises." />
         {storageError && <Text accessibilityRole="alert">{storageError}</Text>}
         <View style={styles.card}>
           <View style={styles.search}>
             <Image source={require('@/assets/exercises/search.png')} style={styles.searchIcon} contentFit="contain" />
-            <TextInput accessibilityLabel="Search exercises" placeholder="Search..." placeholderTextColor={colors.text} value={search} onChangeText={setSearch} style={styles.searchInput} />
+            <TextInput allowFontScaling={Platform.OS !== 'ios'} accessibilityLabel="Search exercises" placeholder="Search..." placeholderTextColor={colors.text} value={search} onChangeText={setSearch} style={styles.searchInput} />
           </View>
           {groups.map(group => {
             const items = exercises.filter(exercise => exercise.muscle === group);
@@ -76,13 +74,13 @@ export default function ExercisesScreen() {
             <ScrollView keyboardShouldPersistTaps="handled" contentContainerStyle={styles.form}>
               <Text style={styles.dialogTitle}>Add Custom Exercise</Text>
               <Text style={styles.fieldLabel}>Exercise name</Text>
-              <TextInput accessibilityLabel="Exercise name" value={name} onChangeText={value => { setName(value); setError(''); }} maxLength={80} style={styles.field} placeholder="e.g. Cable curls" placeholderTextColor="#aaaaaa" />
+              <TextInput allowFontScaling={Platform.OS !== 'ios'} accessibilityLabel="Exercise name" value={name} onChangeText={value => { setName(value); setError(''); }} maxLength={80} style={styles.field} placeholder="e.g. Cable curls" placeholderTextColor="#aaaaaa" />
               <Text style={styles.fieldLabel}>Muscle group</Text>
               <View style={styles.chips}>{muscleGroups.map(group => <Pressable key={group} style={[styles.chip, muscle === group && styles.selectedChip]} onPress={() => setMuscle(group)} accessibilityRole="radio" accessibilityState={{ checked: muscle === group }}>
                 <Text style={[styles.chipLabel, muscle === group && styles.selectedLabel]}>{group}</Text>
               </Pressable>)}</View>
               <Text style={styles.fieldLabel}>Instructions (optional)</Text>
-              <TextInput accessibilityLabel="Exercise instructions" value={description} onChangeText={setDescription} multiline maxLength={1000} style={[styles.field, styles.instructions]} placeholder="How to perform this exercise" placeholderTextColor="#aaaaaa" />
+              <TextInput allowFontScaling={Platform.OS !== 'ios'} accessibilityLabel="Exercise instructions" value={description} onChangeText={setDescription} multiline maxLength={1000} style={[styles.field, styles.instructions]} placeholder="How to perform this exercise" placeholderTextColor="#aaaaaa" />
               {!!error && <Text accessibilityRole="alert" style={styles.error}>{error}</Text>}
               <Pressable style={styles.add} onPress={save} accessibilityRole="button"><Text style={styles.addLabel}>Save Exercise</Text></Pressable>
               <Pressable style={styles.cancel} onPress={() => setCreating(false)} accessibilityRole="button"><Text style={styles.count}>Cancel</Text></Pressable>
@@ -95,7 +93,6 @@ export default function ExercisesScreen() {
 }
 
 const styles = StyleSheet.create({
-  screen: { backgroundColor: colors.chrome },
   body: { flex: 1, backgroundColor: colors.background },
   content: { width: '100%', maxWidth: 432, alignSelf: 'center', paddingHorizontal: 20, paddingTop: 14, paddingBottom: 27, flexGrow: 1 },
   card: { marginTop: 15, backgroundColor: colors.card, borderRadius: 20, overflow: 'hidden' },

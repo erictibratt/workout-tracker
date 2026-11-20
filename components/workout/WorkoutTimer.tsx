@@ -58,6 +58,6 @@ const styles = StyleSheet.create({
   timer: { minWidth: 127, height: 35, paddingHorizontal: 10, borderRadius: 20, backgroundColor: colors.accent, flexDirection: 'row', alignItems: 'center', justifyContent: 'center', gap: 20 },
   play: { width: 25, height: 25 },
   pause: { width: 25, height: 25, borderRadius: 12.5, backgroundColor: colors.card, alignItems: 'center', justifyContent: 'center' },
-  time: { color: '#000000', fontFamily: 'Inter', fontSize: 20, fontWeight: '700', fontVariant: ['tabular-nums'] },
+  time: { color: '#000000', fontFamily: 'Inter', fontSize: 20, lineHeight: 24, fontWeight: '700', fontVariant: ['tabular-nums'] },
   error: { color: colors.text, fontSize: 13, padding: 12 },
 });

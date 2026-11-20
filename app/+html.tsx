@@ -18,7 +18,7 @@ export default function Root({ children }: PropsWithChildren) {
         <link rel="apple-touch-icon" href="/icons/apple-touch-icon.png" />
         <link rel="icon" type="image/png" href="/icons/icon-192.png" />
         <ScrollViewStyleReset />
-        <style>{`html,body,#root{background:#39393a;height:100%;height:100dvh}body{margin:0}input{font-size:16px}*{-webkit-tap-highlight-color:transparent}`}</style>
+        <style>{`html,body,#root{background:#39393a;height:100%;height:100dvh}body{margin:0}#root{width:100%;max-width:402px;margin-inline:auto}input{font-size:16px}*{-webkit-tap-highlight-color:transparent}`}</style>
         {headNodes}
         {process.env.NODE_ENV === 'production' && <script src="/register-sw.js" defer />}
       </head>

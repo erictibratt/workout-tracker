@@ -34,17 +34,17 @@ export default function NextWorkoutCard({ onStart }: NextWorkoutCardProps) {
 }
 
 const styles = StyleSheet.create({
-  card: { padding: 20, gap: 16, borderWidth: 1, borderColor: colors.card, borderRadius: 24, backgroundColor: colors.card },
-  next: { padding: 10, borderRadius: 10, backgroundColor: colors.background, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'flex-start' },
+  card: { gap: 12, paddingBottom: 16, borderRadius: 20, backgroundColor: colors.card, overflow: 'hidden' },
+  next: { paddingHorizontal: 16, paddingVertical: 12, backgroundColor: colors.chrome, flexDirection: 'row', justifyContent: 'space-between', alignItems: 'center' },
   labels: { gap: 5, flexShrink: 1 },
   eyebrow: { fontFamily: 'Inter', fontWeight: '700', fontSize: 11, lineHeight: 13, color: colors.accent },
-  title: { fontFamily: 'Inter', fontWeight: '700', fontSize: 25, lineHeight: 30, color: colors.text },
+  title: { fontFamily: 'Inter', fontWeight: '700', fontSize: 20, lineHeight: 24, color: colors.text },
   description: { fontFamily: 'Inter', fontSize: 13, lineHeight: 16 },
   ring: { width: 54, height: 54 },
-  tags: { flexDirection: 'row', flexWrap: 'wrap', gap: 8 },
-  tag: { paddingHorizontal: 11, paddingVertical: 7, borderRadius: 10 },
+  tags: { flexDirection: 'row', flexWrap: 'wrap', gap: 8, paddingHorizontal: 16 },
+  tag: { paddingHorizontal: 11, paddingVertical: 7, borderRadius: 15, backgroundColor: colors.surface },
   tagLabel: { fontFamily: 'Inter', fontWeight: '600', fontSize: 11, lineHeight: 13, color: colors.text },
-  button: { height: 50, borderRadius: 15, backgroundColor: colors.accent, alignItems: 'center', justifyContent: 'center' },
-  buttonLabel: { fontFamily: 'Inter', fontWeight: '700', fontSize: 15, lineHeight: 18, color: colors.chrome },
+  button: { alignSelf: 'center', minHeight: 44, paddingHorizontal: 20, borderRadius: 25, backgroundColor: colors.accent, alignItems: 'center', justifyContent: 'center' },
+  buttonLabel: { fontFamily: 'Inter', fontWeight: '700', fontSize: 14, lineHeight: 17, color: colors.onAccent },
   pressed: { opacity: 0.7 },
 });

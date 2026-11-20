@@ -1,6 +1,6 @@
 import { colors } from '@/constants/colors';
 import { Image } from 'expo-image';
-import { Pressable, StyleSheet, TextInput, View } from 'react-native';
+import { Platform, Pressable, StyleSheet, TextInput, type TextInputProps, View } from 'react-native';
 
 import Text from '@/components/AppText';
 import type { WorkoutSet } from './types';
@@ -41,41 +41,49 @@ export default function SetRow({
         <Text style={styles.countText}>{number}</Text>
       </Pressable>
 
-      <View style={styles.measurement}>
-        <TextInput
-          value={set.weight}
-          onChangeText={onWeightChange}
-          keyboardType="decimal-pad"
-          selectTextOnFocus
-          maxLength={6}
-          accessibilityLabel={`Set ${number} weight in kilograms`}
-          style={[
-            styles.input,
-            { width: Math.max(20, set.weight.length * 10) },
-          ]}
-        />
-        <Text style={styles.unit}>kg</Text>
-      </View>
+      <SetMeasurement
+        unit="kg"
+        value={set.weight}
+        onChangeText={onWeightChange}
+        keyboardType="decimal-pad"
+        maxLength={6}
+        accessibilityLabel={`Set ${number} weight in kilograms`}
+      />
 
-      <View style={styles.measurement}>
-        <TextInput
-          value={set.reps}
-          onChangeText={onRepsChange}
-          keyboardType="number-pad"
-          selectTextOnFocus
-          maxLength={3}
-          accessibilityLabel={`Set ${number} repetitions`}
-          style={[
-            styles.input,
-            { width: Math.max(20, set.reps.length * 10) },
-          ]}
-        />
-        <Text style={styles.unit}>reps</Text>
-      </View>
+      <SetMeasurement
+        unit="reps"
+        value={set.reps}
+        onChangeText={onRepsChange}
+        keyboardType="number-pad"
+        maxLength={3}
+        accessibilityLabel={`Set ${number} repetitions`}
+      />
 
       <Pressable style={styles.more} onPress={onOptions} accessibilityRole="button" accessibilityLabel={`Options for set ${number}`}>
         <WorkoutIcon name="more" />
       </Pressable>
+    </View>
+  );
+}
+
+type SetMeasurementProps = Pick<TextInputProps, 'value' | 'onChangeText' | 'keyboardType' | 'maxLength' | 'accessibilityLabel'> & {
+  unit: 'kg' | 'reps';
+};
+
+function SetMeasurement({ unit, value, ...inputProps }: SetMeasurementProps) {
+  return (
+    <View style={styles.measurement}>
+      <TextInput
+        {...inputProps}
+        value={value}
+        allowFontScaling={Platform.OS !== 'ios'}
+        selectTextOnFocus
+        style={[
+          styles.value,
+          Platform.OS === 'web' && { width: Math.max(20, (value?.length ?? 0) * 10 + 1) },
+        ]}
+      />
+      <Text style={styles.unit}>{unit}</Text>
     </View>
   );
 }
@@ -105,28 +113,32 @@ const styles = StyleSheet.create({
     fontFamily: 'Inter',
     fontWeight: '700',
     fontSize: 15,
+    lineHeight: 18,
   },
   measurement: {
     flexDirection: 'row',
-    alignItems: 'center',
-    width: 47,
-    gap: 2,
+    alignItems: 'baseline',
+    minWidth: 47,
+    gap: 1,
   },
-  input: {
+  value: {
     fontFamily: 'Inter',
     fontWeight: '700',
     fontSize: 16,
+    lineHeight: 20,
     color: colors.text,
-    padding: 0,
+    includeFontPadding: false,
     minWidth: 20,
-    maxWidth: 38,
-    height: 40,
+    paddingHorizontal: 0,
+    paddingVertical: 8,
   },
   unit: {
     fontFamily: 'Inter',
     fontWeight: '700',
     fontSize: 12,
+    lineHeight: 15,
     color: colors.accent,
+    includeFontPadding: false,
   },
   more: {
     width: 25,
